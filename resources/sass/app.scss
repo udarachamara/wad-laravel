@@ -1,0 +1,49 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import '~datatables.net-bs4/css/dataTables.bootstrap4.css';
+
+.dataTables_wrapper > .row {
+    width: 100%;
+}
+
+.dataTables_length {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.dataTables_paginate > ul ,  #tbl_company_filter {
+    display: flex;
+    justify-content: center;
+}
+
+.dataTables_wrapper > div:nth-child(2) > div {
+    width: 100%;
+}
+
+.action-btn > button {
+    padding: 5px !important;
+    font-size: 13px !important;
+}
+
+@media (min-width: 768px) {
+    .dataTables_wrapper > .row {
+        width: 100%;
+    }
+    
+    .dataTables_length {
+        display: flex;
+        justify-content: flex-start;
+    }
+    
+    .dataTables_paginate > ul ,  #tbl_company_filter {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
