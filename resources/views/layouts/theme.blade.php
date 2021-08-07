@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@auth
+
+
 @section('content')
     <div class="row">
         <div class="sidebar col-md-2 col-sm-12">
@@ -18,3 +21,5 @@
     </div>
 
 @endsection
+
+@endauth
