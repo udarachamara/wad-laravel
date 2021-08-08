@@ -7,6 +7,7 @@ Node js package manager
 # create database and privileges in mysql #
 
 CREATE USER 'wad'@'localhost' IDENTIFIED BY 'wad@123';
+
 GRANT ALL PRIVILEGES ON * . * TO 'wad'@'localhost';
 
 create database wad-laravel
