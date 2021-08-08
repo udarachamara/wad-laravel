@@ -16,6 +16,7 @@ class UserAccessible
      */
     public function handle($request, Closure $next)
     {
+
         $isAuth = Auth::guard('api')->check();
 
         if(!$isAuth){
@@ -30,7 +31,6 @@ class UserAccessible
 
             return response()->json($output, $code);
         }
-
         return $next($request);
     }
 }

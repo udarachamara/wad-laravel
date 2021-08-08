@@ -20,6 +20,7 @@ class CorsEnable
         header('Access-Control-Allow-Headers:  Content-Type, X-Auth-Token, Authorization');
         header('Access-Control-Request-Headers:  Content-Type, X-Auth-Token, Authorization');
         header('Access-Control-Allow-Methods:  POST, PUT, GET, OPTION, DELETE');
+        header('Accept:application/json');
 
         return $next($request);
     }

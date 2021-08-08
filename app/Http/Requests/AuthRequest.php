@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\JsonResponse; 
 
 class AuthRequest extends FormRequest
 {
@@ -24,8 +25,9 @@ class AuthRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'=> 'required|string',
+            'email'=> 'required|string|email',
             'password'=> 'required|string'
         ];
     }
+
 }

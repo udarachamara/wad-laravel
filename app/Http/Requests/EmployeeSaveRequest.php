@@ -26,7 +26,7 @@ class EmployeeSaveRequest extends FormRequest
         return [
             'first_name' => 'required|max:100',
             'last_name' => 'required|max:100',
-            'email' => 'unique:employee|max:60',
+            'email' => 'email|unique:employee|max:60',
             'phone' => 'max:20',
         ];
     }

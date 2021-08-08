@@ -1,24 +1,36 @@
+# requirement #
+xampp or php environmet (php > 7.3)
+composer
+Node js package manager
+
+
+# create database and privileges in mysql #
+
 CREATE USER 'wad'@'localhost' IDENTIFIED BY 'wad@123';
 GRANT ALL PRIVILEGES ON * . * TO 'wad'@'localhost';
 
 create database wad-laravel
 
-admin@wearedesigners.net
-654321
+# run this command #
 
-composer create-project laravel/laravel="8.0.*" wad-laravel
+composer install (install vendor files)
 
+npm install (npm modules)
 
-composer install
-npm install
-npm run dev
+npm run dev ( after finished Stop if session didnt close  automaticaly  by ctrl^c )
 
-php artisan migrate:fresh --seed
-php artisan key:generate 
-php artisan passport:keys
-php artisan passport:install
+php artisan migrate:fresh --seed (create tables and insert testing data)
 
-##########
+php artisan key:generate (generate app key)
+
+php artisan passport:keys (keys for passsport)
+
+php artisan passport:install (setup passport requirments)
+
+php artisan l5-swagger:generate
+
+# final steps #
+
 if run on virtual host
 
 stop npm run dev
@@ -31,4 +43,13 @@ xampp htdocs
 change env file
 ----------------
 db credentials and APP_URL
+
+# login details for dashboard#
+admin@wearedesigners.net
+654321
+
+# swagger Document #
+<APP_URL>/api/documentation
+
+
 
