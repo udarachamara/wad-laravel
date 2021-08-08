@@ -42,9 +42,14 @@
             </div>
 
             <div class="form-group">
-                @if (isset($companyData))
-                    <img src="{{ $companyData->logo }}" width="100" alt="">
-                    <br>
+                @if (isset($companyData->logo))
+                    @if (str_contains($companyData->logo, 'http'))
+                        <img src="{{ $companyData->logo }}" width="150" alt="">
+                        <br>
+                    @else
+                        <img src="{{ asset('') . $companyData->logo }}" width="150" alt="">
+                        <br>
+                    @endif
                 @endif
                 <label for="logo">Logo</label>
                 <input @if (!$edit) disabled @endif type="file" class="form-control" name="logo" >

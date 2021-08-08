@@ -57,9 +57,14 @@
             </div>
 
             <div class="form-group">
-                @if (isset($employeeData))
-                    <img src="{{ $employeeData->profile_photo }}" width="150" alt="">
-                    <br>
+                @if (isset($employeeData->profile_photo))
+                    @if (str_contains($employeeData->profile_photo, 'http'))
+                        <img src="{{ $employeeData->profile_photo }}" width="150" alt="">
+                        <br>
+                    @else
+                        <img src="{{ asset('') . $employeeData->profile_photo }}" width="150" alt="">
+                        <br>
+                    @endif
                 @endif
                 <label for="profile_photo">Profile Picture</label>
                 <input @if (!$edit) disabled @endif type="file" class="form-control" name="profile_photo" >
