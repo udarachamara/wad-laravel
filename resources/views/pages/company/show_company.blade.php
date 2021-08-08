@@ -18,8 +18,8 @@
             </div>
         @endif
         </div>
-        <form action="{{ $action->url }}" method="{{ $action->method }}">
-            <input type="hidden" name="_method" value="{{ $action->method }}" />
+        <form action="{{ $action->url }}" method="{{ $action->method }}" enctype='multipart/form-data'>
+                    @method($action->method)
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <div class="form-group">
                 <label for="name">Name</label>

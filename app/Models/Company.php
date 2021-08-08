@@ -31,5 +31,5 @@ class Company extends Model
 
     protected $table = 'company';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'email', 'telephone', 'logo', 'website'];
 }

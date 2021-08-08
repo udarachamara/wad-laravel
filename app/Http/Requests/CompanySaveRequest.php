@@ -27,6 +27,7 @@ class CompanySaveRequest extends FormRequest
             'name' => 'required|max:100',
             'email' => 'email|unique:company|max:60',
             'telephone' => 'max:20',
+            'logo' => 'mimes:png,jpg,gif|max:2048'
         ];
     }
 }

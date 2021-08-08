@@ -28,6 +28,7 @@ class EmployeeSaveRequest extends FormRequest
             'last_name' => 'required|max:100',
             'email' => 'email|unique:employee|max:60',
             'phone' => 'max:20',
+            'profile_photo' => 'mimes:png,jpg,gif|max:2048'
         ];
     }
 }

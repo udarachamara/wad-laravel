@@ -47,14 +47,23 @@ class EmployeeController extends Controller
      */
     public function store(EmployeeSaveRequest $request)
     {
+        $filePath = "";
         try {
+            try {
+                if(isset($request->profile_photo)){
+                    $profilePhoto = time().'_'.$request->profile_photo;
+                    $filePath = $request->file('profile_photo')->storeAs('/', $profilePhoto, 'uploads');
+                }
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
             $employee = Employee::create([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'company_id' => $request->company_id,
-                'profile_photo' => $request->profile_photo,
+                'profile_photo' => $filePath,
                 'website' => $request->website
             ]);
             if ($employee) {

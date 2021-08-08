@@ -39,12 +39,21 @@ class CompanyController extends Controller
      */
     public function store(CompanySaveRequest $request)
     {
+        $filePath = "";
         try {
+            try {
+                if(isset($request->logo)){
+                    $logoName = time().'_'.$request->logo;
+                    $filePath = $request->file('logo')->storeAs('/', $logoName, 'uploads');
+                }
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
             $company = Company::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'telephone' => $request->email,
-                'logo' => $request->logo,
+                'telephone' => $request->telephone,
+                'logo' => $filePath,
                 'website' => $request->website
             ]);
             if ($company) {
@@ -68,7 +77,7 @@ class CompanyController extends Controller
     public function show($id, Request $request)
     {
         $edit = $request->edit ? true : false;
-        $action = ['url' => '/company/'.$id, 'method' => 'PATCH'];
+        $action = ['url' => '/company/'.$id, 'method' => 'PUT'];
         $company = Company::find($id);
         return view('pages.company.show_company', ['id' => $id, 'companyData' => $company, 'edit' => $edit, 'action' => (object) $action]);
     }
@@ -98,7 +107,9 @@ class CompanyController extends Controller
         $company->email = $request->email;
         $company->telephone = $request->telephone;
         if(isset($request->logo)){
-            $company->logo = $request->logo;
+            $logoName = time().'_'.$request->logo;
+            $filePath = $request->file('logo')->storeAs('uploads', $logoName, 'public');
+            $company->logo = $filePath;
         }
         $company->website = $request->website;
         $company->save();
