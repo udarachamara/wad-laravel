@@ -42,6 +42,8 @@ xampp htdocs
 
 change env file
 ----------------
+get backup from .env.example and rename to .env
+
 db credentials and APP_URL
 
 # login details for dashboard#
